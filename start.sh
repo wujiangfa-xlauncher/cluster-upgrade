@@ -23,6 +23,8 @@ if [ $upgrade_master = 'y' ]; then
    fi
 fi
 
+yum install -y sshpass
+
 while true
 do
 
