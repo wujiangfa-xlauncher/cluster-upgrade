@@ -64,7 +64,7 @@ do
     fi
 
     print_tips "远程执行升级节点脚本，节点ip: ${node_ip}"
-    sshpass -p ${node_root_pwd} ssh -o StrictHostKeyChecking=no -p 22 root@${node_ip} /root/${UPGRADE_NODE_FILE}
+    sshpass -p ${node_root_pwd} ssh -o StrictHostKeyChecking=no -p 22 root@${node_ip} /root/${UPGRADE_NODE_FILE} ${VERSION}
     if [ $? -ne 0 ]; then
        print_error "升级节点脚本执行失败"
        exit 1

@@ -1,5 +1,7 @@
 #/bin/bash
 
+VERSION=$1
+
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
