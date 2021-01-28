@@ -51,20 +51,20 @@ do
     fi
 
     print_tips "远程拷贝升级节点脚本，节点ip: ${node_ip}"
-    sshpass -p ${node_root_pwd} scp ${UPGRADE_NODE_FILE} root@${node_ip}:/root/
+    sshpass -p ${node_root_pwd} scp -o StrictHostKeyChecking=no ${UPGRADE_NODE_FILE} root@${node_ip}:/root/
     if [ $? -ne 0 ]; then
        print_error "升级节点脚本拷贝失败"
        exit 1
     fi
 
-    sshpass -p ${node_root_pwd} scp -r /root/.kube root@${node_ip}:/root/
+    sshpass -p ${node_root_pwd} scp -o StrictHostKeyChecking=no -r /root/.kube root@${node_ip}:/root/
     if [ $? -ne 0 ]; then
        print_error "kubeconfig拷贝失败"
        exit 1
     fi
 
     print_tips "远程执行升级节点脚本，节点ip: ${node_ip}"
-    sshpass -p ${node_root_pwd} ssh -p 22 root@${node_ip} /root/${UPGRADE_NODE_FILE}
+    sshpass -p ${node_root_pwd} ssh -o StrictHostKeyChecking=no -p 22 root@${node_ip} /root/${UPGRADE_NODE_FILE}
     if [ $? -ne 0 ]; then
        print_error "升级节点脚本执行失败"
        exit 1
