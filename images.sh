@@ -2,7 +2,7 @@
 ## 设置镜像来源仓库地址
 MY_REGISTRY=registry.aliyuncs.com/google_containers
 ## 设置镜像上传仓库地址
-PUSH_REGISTRY=registry.aliyuncs.com/launcher
+PUSH_REGISTRY=registry.cn-hangzhou.aliyuncs.com/launcher
 ## 拉取镜像
 docker pull ${MY_REGISTRY}/kube-apiserver:v1.16.0
 docker pull ${MY_REGISTRY}/kube-controller-manager:v1.16.0
