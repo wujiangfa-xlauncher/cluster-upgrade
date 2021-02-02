@@ -8,7 +8,7 @@ export VERSION=1.16.0
 UPGRADE_NODE_FILE=upgrade_node.sh
 UPGRADE_MASTER_FILE=./upgrade_master.sh
 
-read -n 1 -p "是否安装master节点，输入y/n > " upgrade_master
+read -n 1 -p "是否升级当前master节点到版本${VERSION}，输入y/n > " upgrade_master
 printf "\n"  #换行
 
 if [ $upgrade_master = 'y' ]; then
@@ -28,7 +28,7 @@ yum install -y sshpass
 while true
 do
 
-  read -n 1 -p "是否升级其他节点，输入y/n > " upgrade
+  read -n 1 -p "是否升级其他节点到版本${VERSION}，输入y/n > " upgrade
   printf "\n"  #换行
   if [ $upgrade = 'n' ]; then
      exit 0
