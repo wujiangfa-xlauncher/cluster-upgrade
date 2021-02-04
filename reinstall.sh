@@ -1,7 +1,7 @@
 #/bin/bash
 
 if [ $# != 2 ] ; then
-   echo "入参错误，需要两个参数，第一个参数为主机名，第二个参数未slb的公网ip"
+   echo "入参错误，需要两个参数，第一个参数为主机名，第二个参数为slb的公网ip"
    exit 1
 fi
 hostnamectl set-hostname $1
@@ -48,6 +48,7 @@ EOF
 
 #启动docker
 systemctl enable docker
+systemctl enable kubelet
 systemctl start docker
 #系统配置
 cat <<EOF >  /etc/sysctl.d/k8s.conf
